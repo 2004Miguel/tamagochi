@@ -4,6 +4,7 @@
 }
 .container{
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     position: absolute;
@@ -14,8 +15,28 @@
     background-image: linear-gradient( 135deg, #FD6E6A 10%, #FFC600 100%);
 }
 .main__screen{
-    /* background-color: white; */
+    background-color: #FFFFE0;
     border: 3px solid black;
-    height: 500px;
-    width: 300px;
+    height: 85%;
+    width: 70%;
+}
+.status{
+    display: flex;
+    align-self: flex-start;
+    justify-content: space-between;
+    border-bottom: 3px solid black;   
+}
+.status__range{
+    width: 85px;
+}
+.actions{
+    margin-top: 8px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+.action__bottom{
+    width: 60px;
+    height: 40px;
+    border-radius: 100%;
 }
