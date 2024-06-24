@@ -9,26 +9,52 @@
 <body>
     <script src="https://kit.fontawesome.com/f350240ada.js" crossorigin="anonymous"></script>
     <div class="container">
-        <div class="main__screen">
+        <div id="screen" class="main__screen">
             <div class="status">
-               <div>100%</div>
-               <div>100%</div>
-               <div>100%</div>
+               <!-- <div class="status__property"><strong>100%</strong></div>
+               <div class="status__property"><strong>100%</strong></div>
+               <div class="status__property"><strong>100%</strong></div> -->
+               <input id="angry" class="status__property" type="number" readonly>
+               <input id="sleepStat" class="status__property" type="number" readonly>
+               <input id="gameStat" class="status__property" type="number" readonly>
+            </div>
+            <div class="status__name">
+                <div>Hambre</div>
+                <div>Sueño</div>
+                <div>Diversión</div>
             </div>
             <img id="character" src="./multimedia/Captura desde 2024-06-22 17-25-49.png" alt="">
+            <div class="messages">mensajes
+                <p>comió</p>
+                <p>comió</p>
+                <p>comió</p>
+                <p>comió</p>
+                <p>comió</p>
+                <p>comió</p>
+                <p>comió</p>
+                <p>comió</p>
+                <p>comió</p>
+                <p>comió</p>
+                <p>comió</p>
+                <p>comió</p>
+                <p>comió</p>
+                <p>comió</p>
+
+            </div>
         </div>
         <div class="actions">
-            <button class="action__bottom">
+            <button id="eat"class="action__bottom">
                 <i class="fa-solid fa-utensils"></i>
             </button>
-            <button class="action__bottom">
+            <button id="sleep" class="action__bottom">
                 <i class="fa-solid fa-bed"></i>
             </button>
-            <button class="action__bottom">
+            <button id="game" class="action__bottom">
                 <i class="fa-solid fa-gamepad"></i>
             </button>
         </div>
 
     </div>
+    <script src="./app.js"></script>
 </body>
 </html>

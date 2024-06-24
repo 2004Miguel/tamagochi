@@ -22,19 +22,39 @@
     height: 85%;
     width: 70%;
 }
+.status__property{
+    background-color: green;
+    border-radius: 15%;
+    width: 70px;
+}
 #character{
     align-self: center;
     position: relative;
     object-fit: fill;
+    border-radius: 20%;
     top: 120px;
     width: 80%;
     height: 40%;
+}
+.messages{
+    width: 100%;
+    background-color: #FFE4B5;
+    position: relative;
+    top: 120px;
+    height: 178px;
+    overflow-y: scroll;
+    border-top: 3px solid black;
 }
 .status{
     display: flex;
     justify-content: space-around;
     width: 100%;
     border-bottom: 3px solid black;
+}
+.status__name{
+    display: flex;
+    justify-content: space-around;
+    color: #0000FF;
 }
 .status__range{
     width: 85px;
