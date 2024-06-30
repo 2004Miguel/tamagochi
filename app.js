@@ -14,11 +14,6 @@ let character = document.getElementById("character");
 
 let screenMessages = document.querySelector(".messages");
 
-
-// let paragraph = document.createElement("p");
-// let namePett = nameInput.value;
-// let actionMessage = paragraph.appendChild(eatMessage);
-
 angryInput.value=100;
 sleepInput.value=100;
 gameInput.value=100;
@@ -32,10 +27,19 @@ function restarSueño(){
 function restarDiversion(){
     gameInput.value -= 1;
 }
+function sumarAnios(){
+    let parceo = parseInt(inputAge.value, 10);
+    parceo += 1;
+    inputAge.value = parceo;
+}
+
+
 
 eatButton.addEventListener("click", ()=>{
     let newParagraph = `<p> ${nameInput.value} comió`;
     screenMessages.innerHTML = newParagraph;
+    // console.log(screenMessages); muestra el html que se agregó
+
 });
 sleepButton.addEventListener("click", ()=>{
     let newParagraph = `<p> ${nameInput.value} va a dormir`;
@@ -53,25 +57,18 @@ screenButton.addEventListener("click", ()=>{
 });
 saveButton.addEventListener("click", ()=>{
     nameInput.setAttribute("readonly", true);
-    // inputAge.setAttribute("readonly", true);
     selectSex.setAttribute("disabled", true);
-    let valueSex = selectSex.value;//se save la opción que se eligió del select
+    let valueSex = selectSex.value;//se sabe la opción que se eligió del select
     if(valueSex == "men"){
-        character.setAttribute("src", "multimedia/hombre.png");
+        character.setAttribute("src", "multimedia/hombre.png");//Cambia la imágen de la mascota si es hombre
     }
 })
 
-console.log(screenMessages);
-
-// saveButton.addEventListener("click", () =>{
-//     if(nameInput.value == "Miguel"){
-//         console.log("Es miguel");
-//     }else{
-//         console.log("Es diferente de Miguel");
-//     }
-// })
 
 // setInterval(restarHambre, 1000);
 // setInterval(restarSueño, 2000);
 // setInterval(restarDiversion, 3000);
+// setInterval(sumarAnios, 100);
+
+
 
