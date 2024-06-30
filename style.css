@@ -40,8 +40,8 @@
     width: 100%;
     background-color: #FFE4B5;
     position: relative;
-    top: 120px;
-    height: 178px;
+    top: 150px;
+    height: 85px;
     overflow-y: scroll;
     border-top: 3px solid black;
 }
@@ -80,6 +80,17 @@
     transform: scale(1.5);
     transition: transform 1000ms;
 
+}
+.custom{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    position: relative;
+    flex-wrap: nowrap;
+    top: 130px
+}
+.input{
+    width: 65%;
 }
 
 @media (min-width: 700px){
