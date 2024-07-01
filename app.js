@@ -13,6 +13,7 @@ let selectSex = document.getElementById("sex");
 let character = document.getElementById("character");
 
 let screenMessages = document.querySelector(".messages");
+// let statusClass = document.querySelector('.status__property');
 
 angryInput.value=100;
 sleepInput.value=100;
@@ -32,6 +33,49 @@ function sumarAnios(){
     parceo += 1;
     inputAge.value = parceo;
 }
+function cambioAngry(){
+    let value = parseInt(angryInput.value, 10);
+
+    if(value == 90){
+        angryInput.classList.add("live-level");
+    }else if(value == 60){
+        angryInput.classList.add("live-level-medium");
+    }else if(value == 40){
+        angryInput.classList.add("live-level-low");
+    }else if(value == 20){
+        angryInput.classList.add("live-level-last");
+    }
+}
+function cambioSleep(){
+    if(parseInt(sleepInput.value, 10) == 95){
+        console.log("Entró en el condicional");
+        sleepInput.classList.add("live-level");
+    }
+}
+function cambioGame(){
+    if(parseInt(gameInput.value, 10) == 95){
+        console.log("Entró en el condicional");
+        gameInput.classList.add("live-level");
+    }
+}
+function cambioStatus(){
+    cambioAngry();
+    // cambioSleep();
+    // cambioGame();
+}
+// function cambioStatus(){
+//     if(parseInt(angryInput.value, 10) == 95){
+//         console.log("Entró en el condicional");
+//         angryInput.classList.add("live-level");
+//     }else if(parseInt(sleepInput.value, 10) == 95){
+//         console.log("Condición del sueño");
+//         sleepInput.classList.add("live-level");
+//     }else if(parseInt(gameInput.value) == 95){
+//         gameInput.classList.add("live-level");
+//     }
+    
+
+// }
 
 
 
@@ -64,8 +108,8 @@ saveButton.addEventListener("click", ()=>{
     }
 })
 
-
-// setInterval(restarHambre, 1000);
+// setInterval(cambioStatus, 500);
+// setInterval(restarHambre, 500);
 // setInterval(restarSueño, 2000);
 // setInterval(restarDiversion, 3000);
 // setInterval(sumarAnios, 100);

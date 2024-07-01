@@ -27,6 +27,22 @@
     border-radius: 15%;
     width: 70px;
 }
+.live-level{
+    background-color: #3CB371	;
+    transition: background-color 2000ms;
+}
+.live-level-medium{
+    background-color: #FF8C00;
+    transition: background-color 2000ms;
+}
+.live-level-low{
+    background-color: #F08080;
+    transition: background-color 2000ms;
+}
+.live-level-last{
+    background-color: #FF0000;
+    transition: background-color 2000ms;
+}
 #character{
     align-self: center;
     position: relative;
