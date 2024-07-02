@@ -47,21 +47,35 @@ function cambioAngry(){
     }
 }
 function cambioSleep(){
-    if(parseInt(sleepInput.value, 10) == 95){
-        console.log("Entró en el condicional");
+    let value = parseInt(sleepInput.value, 10);
+
+    if(value == 90){
         sleepInput.classList.add("live-level");
+    }else if(value == 60){
+        sleepInput.classList.add("live-level-medium");
+    }else if(value == 40){
+        sleepInput.classList.add("live-level-low");
+    }else if(value == 20){
+        sleepInput.classList.add("live-level-last");
     }
 }
 function cambioGame(){
-    if(parseInt(gameInput.value, 10) == 95){
-        console.log("Entró en el condicional");
+    let value = parseInt(gameInput.value, 10);
+
+    if(value == 90){
         gameInput.classList.add("live-level");
+    }else if(value == 60){
+        gameInput.classList.add("live-level-medium");
+    }else if(value == 40){
+        gameInput.classList.add("live-level-low");
+    }else if(value == 20){
+        gameInput.classList.add("live-level-last");
     }
 }
 function cambioStatus(){
     cambioAngry();
-    // cambioSleep();
-    // cambioGame();
+    cambioSleep();
+    cambioGame();
 }
 // function cambioStatus(){
 //     if(parseInt(angryInput.value, 10) == 95){
@@ -80,15 +94,58 @@ function cambioStatus(){
 
 
 eatButton.addEventListener("click", ()=>{
-    let newParagraph = `<p> ${nameInput.value} comió`;
-    screenMessages.innerHTML = newParagraph;
-    // console.log(screenMessages); muestra el html que se agregó
+    let hunger = parseInt(angryInput.value);
+    let hugerPlus = hunger + 5;
+    if(hunger <= 95){
+        let newParagraph = `<p>Se restableció 5 de hambre¡¡`;
+        angryInput.value = hugerPlus;
+        screenMessages.innerHTML = newParagraph;
+        // console.log(screenMessages); muestra el html que se agregó
+
+    }else{
+        let newParagraph = `<p>${nameInput.value} no tiene hambre aún¡¡`;
+        screenMessages.innerHTML = newParagraph;
+    }
+
+    if(hunger >= 90){
+        angryInput.classList.remove("live-level");
+    }
+    if(hunger >= 60 && hunger < 90){
+        angryInput.classList.remove("live-level-medium");
+        // angryInput.classList.remove("live-level");
+
+    }
+    if(hunger >= 40 && hunger < 60){
+        angryInput.classList.remove("live-level-low");
+        angryInput.classList.remove("live-level-medium");
+        angryInput.classList.remove("live-level");
+
+
+    }
+    if(hunger >= 20 && hunger < 40){
+        angryInput.classList.remove("live-level-last");
+        angryInput.classList.remove("live-level-low");
+        angryInput.classList.remove("live-level-medium");
+        angryInput.classList.remove("live-level");
+    }
 
 });
 sleepButton.addEventListener("click", ()=>{
-    let newParagraph = `<p> ${nameInput.value} va a dormir`;
-    screenMessages.innerHTML = newParagraph;
+    // let newParagraph = `<p> ${nameInput.value} va a dormir`;
+    // screenMessages.innerHTML = newParagraph;
     // console.log("Se apretó el botón de dormir");
+    let sleep = parseInt(sleepInput.value);
+    let sleepPlus = sleep + 5;
+    if(sleep <= 95){
+        let newParagraph = `<p>Se restableció 5 de sueño¡¡`;
+        sleepInput.value = sleepPlus;
+        screenMessages.innerHTML = newParagraph;
+        // console.log(screenMessages); muestra el html que se agregó
+
+    }else{
+        let newParagraph = `<p>${nameInput.value} no tiene sueño aún¡¡`;
+        screenMessages.innerHTML = newParagraph;
+    }
 });
 gameButton.addEventListener("click", ()=>{
     let newParagraph = `<p> ${nameInput.value} está jugando`;
@@ -108,11 +165,11 @@ saveButton.addEventListener("click", ()=>{
     }
 })
 
-// setInterval(cambioStatus, 500);
-// setInterval(restarHambre, 500);
-// setInterval(restarSueño, 2000);
-// setInterval(restarDiversion, 3000);
-// setInterval(sumarAnios, 100);
+setInterval(cambioStatus, 500);
+setInterval(restarHambre, 500);
+setInterval(restarSueño, 500);
+// setInterval(restarDiversion, 500);
+// setInterval(sumarAnios, 500);
 
 
 
