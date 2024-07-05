@@ -73,24 +73,25 @@ function cambioGame(){
     }
 }
 function cambioStatus(){
+    if(parseInt(angryInput.value) == 0){
+        character.setAttribute("src", "multimedia/muerte.png");
+        let newParagraph = `<p> ${nameInput.value} SE MURIÓ DE HAMBRE :(`;
+        screenMessages.innerHTML = newParagraph;
+    }
+    if(parseInt(sleepInput.value) == 0){
+        character.setAttribute("src", "multimedia/muerte.png");
+        let newParagraph = `<p> ${nameInput.value} SE MURIÓ POR SOMNOLENCIA :(`;
+        screenMessages.innerHTML = newParagraph;
+    }
+    if(parseInt(gameInput.value) == 0){
+        character.setAttribute("src", "multimedia/muerte.png");
+        let newParagraph = `<p> ${nameInput.value} SE MURIÓ POR DEPRESIÓN :(`;
+        screenMessages.innerHTML = newParagraph;
+    }
     cambioAngry();
     cambioSleep();
     cambioGame();
 }
-// function cambioStatus(){
-//     if(parseInt(angryInput.value, 10) == 95){
-//         console.log("Entró en el condicional");
-//         angryInput.classList.add("live-level");
-//     }else if(parseInt(sleepInput.value, 10) == 95){
-//         console.log("Condición del sueño");
-//         sleepInput.classList.add("live-level");
-//     }else if(parseInt(gameInput.value) == 95){
-//         gameInput.classList.add("live-level");
-//     }
-    
-
-// }
-
 
 
 eatButton.addEventListener("click", ()=>{
@@ -107,33 +108,22 @@ eatButton.addEventListener("click", ()=>{
         screenMessages.innerHTML = newParagraph;
     }
 
-    if(hunger >= 90){
+    if(parseInt(angryInput.value) >= 90){
         angryInput.classList.remove("live-level");
     }
-    if(hunger >= 60 && hunger < 90){
+    if(parseInt(angryInput.value) >= 60 && parseInt(angryInput.value) < 90){
         angryInput.classList.remove("live-level-medium");
-        // angryInput.classList.remove("live-level");
-
     }
-    if(hunger >= 40 && hunger < 60){
+    if(parseInt(angryInput.value) >= 40 && parseInt(angryInput.value) < 60){
         angryInput.classList.remove("live-level-low");
-        angryInput.classList.remove("live-level-medium");
-        angryInput.classList.remove("live-level");
-
-
     }
-    if(hunger >= 20 && hunger < 40){
+    if(parseInt(angryInput.value) >= 20 && parseInt(angryInput.value) < 40){
         angryInput.classList.remove("live-level-last");
-        angryInput.classList.remove("live-level-low");
-        angryInput.classList.remove("live-level-medium");
-        angryInput.classList.remove("live-level");
     }
+    
 
 });
 sleepButton.addEventListener("click", ()=>{
-    // let newParagraph = `<p> ${nameInput.value} va a dormir`;
-    // screenMessages.innerHTML = newParagraph;
-    // console.log("Se apretó el botón de dormir");
     let sleep = parseInt(sleepInput.value);
     let sleepPlus = sleep + 5;
     if(sleep <= 95){
@@ -146,30 +136,61 @@ sleepButton.addEventListener("click", ()=>{
         let newParagraph = `<p>${nameInput.value} no tiene sueño aún¡¡`;
         screenMessages.innerHTML = newParagraph;
     }
+    if(parseInt(sleepInput.value) >= 90){
+        sleepInput.classList.remove("live-level");
+    }
+    if(parseInt(sleepInput.value) >= 60 && parseInt(sleepInput.value) < 90){
+        sleepInput.classList.remove("live-level-medium");
+    }
+    if(parseInt(sleepInput.value) >= 40 && parseInt(sleepInput.value) < 60){
+        sleepInput.classList.remove("live-level-low");
+    }
+    if(parseInt(sleepInput.value) >= 20 && parseInt(sleepInput.value) < 40){
+        sleepInput.classList.remove("live-level-last");
+    }
 });
 gameButton.addEventListener("click", ()=>{
-    let newParagraph = `<p> ${nameInput.value} está jugando`;
-    screenMessages.innerHTML = newParagraph;
-    // console.log("Se apretó el botón de jugar");
+    let game = parseInt(gameInput.value);
+    let gamePlus = game + 5;
+    if(game <= 95){
+        let newParagraph = `<p> ${nameInput.value} está jugando +5¡¡`;
+        gameInput.value = gamePlus;
+        screenMessages.innerHTML = newParagraph;
+        // console.log("Se apretó el botón de jugar");
+    }else{
+        let newParagraph = `<p> ${nameInput.value} no quiere jugar¡¡`;
+        screenMessages.innerHTML = newParagraph;
+    }
+
+    if(parseInt(gameInput.value) >= 90){
+        gameInput.classList.remove("live-level");
+    }
+    if(parseInt(gameInput.value) >= 60 && parseInt(gameInput.value) < 90){
+        gameInput.classList.remove("live-level-medium");
+    }
+    if(parseInt(gameInput.value) >= 40 && parseInt(gameInput.value) < 60){
+        gameInput.classList.remove("live-level-low");
+    }
+    if(parseInt(gameInput.value) >= 20 && parseInt(gameInput.value) < 40){
+        gameInput.classList.remove("live-level-last");
+    }
+    
 });
-screenButton.addEventListener("click", ()=>{
-    console.log("se dió click en la pantalla");
-    angryInput.value = 100;
-});
+
 saveButton.addEventListener("click", ()=>{
     nameInput.setAttribute("readonly", true);
     selectSex.setAttribute("disabled", true);
+    saveButton.setAttribute("disabled", true);
     let valueSex = selectSex.value;//se sabe la opción que se eligió del select
     if(valueSex == "men"){
         character.setAttribute("src", "multimedia/hombre.png");//Cambia la imágen de la mascota si es hombre
     }
+    setInterval(cambioStatus, 500);
+    setInterval(restarHambre, 500);
+    setInterval(restarSueño, 500);
+    setInterval(restarDiversion, 500);
+    setInterval(sumarAnios, 500);
 })
-
-setInterval(cambioStatus, 500);
-setInterval(restarHambre, 500);
-setInterval(restarSueño, 500);
-// setInterval(restarDiversion, 500);
-// setInterval(sumarAnios, 500);
 
 
 
